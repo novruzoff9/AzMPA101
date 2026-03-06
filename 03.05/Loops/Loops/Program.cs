@@ -17,24 +17,80 @@
 //Eks halda “2 - 5 arasi eded daxil edin”)
 
 //int n = 3;
-int n = Convert.ToInt32(Console.ReadLine());
+//int n = Convert.ToInt32(Console.ReadLine());
 
-switch (n)
+//switch (n)
 
-{
-    case 2:
-        Console.WriteLine("pis");
-        break;
-    case 3:
-        Console.WriteLine("kafi");
-        break;
-    case 4:
-        Console.WriteLine("yaxsi");
-        break;
-    case 5:
-        Console.WriteLine("ela");
-        break;
-    default:
-         Console.WriteLine("2-5 arasi eded daxil edin");
-        break;
-}
+//{
+//    case 2:
+//        Console.WriteLine("pis");
+//        break;
+//    case 3:
+//        Console.WriteLine("kafi");
+//        break;
+//    case 4:
+//        Console.WriteLine("yaxsi");
+//        break;
+//    case 5:
+//        Console.WriteLine("ela");
+//        break;
+//    default:
+//         Console.WriteLine("2-5 arasi eded daxil edin");
+//        break;
+//}
+
+// verilmis n sayda daxil edilen ededin ceminin tapilmasi
+//int n = Convert.ToInt32(Console.ReadLine());
+//int sum = 0;
+//for (int i = 0; i < n; i++)
+//{
+//    int input = Convert.ToInt32(Console.ReadLine());
+//    sum += input;
+//}
+//Console.WriteLine(sum);
+
+//int x = Convert.ToInt32(Console.ReadLine()); // 5
+//int y = Convert.ToInt32(Console.ReadLine()); // 3
+//int netice = 1;
+//for (int i = 0; i < y; i++)
+//{
+//    netice *= x;
+//}
+//Console.WriteLine(netice);
+
+//int netice = 1;
+//while (true)
+//{
+//    int x = Convert.ToInt32(Console.ReadLine());
+//    if (x == 0)
+//    {
+//        break;
+//    }
+//    netice *= x;
+//}
+//Console.WriteLine(netice);
+
+//string password = "salam123";
+//while (true)
+//{
+//    string input = Console.ReadLine();
+//    if(input == password)
+//    {
+//        Console.WriteLine("Parol duzgundur");
+//        break;
+//    }
+//    Console.WriteLine("Sifre duzgun deyil");
+//}
+
+
+//int x = Convert.ToInt32(Console.ReadLine()); // 17
+//int y = Convert.ToInt32(Console.ReadLine()); // 18
+//int maxi = -1;
+//for (int i = 0; i <= x; i++)
+//{
+//    if (i % y == 0)
+//    {
+//        maxi = i;
+//    }
+//}
+//Console.WriteLine(maxi);
