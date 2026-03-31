@@ -76,8 +76,3 @@
    // Senior teacher-lərin orta maaşını hesabla
    // Hər şəxsin məlumatını çap et
    ```
-
-**Əlavə tələblər:**
-- Exception handling constructor-larda və property setter-lərində
-- ToString() metodunu override edin (GetInfo() əvəzinə)
-- Property validation-larında meaningful exception message-lar
