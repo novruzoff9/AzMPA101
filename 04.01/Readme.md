@@ -1,4 +1,3 @@
-# 16 fevral
 ## Restoran Simulyaiyası:
 1. `Food` adında `abstract` class yaratmalı:
 2. Propertylər:
