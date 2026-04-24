@@ -1,0 +1,25 @@
+p {
+  font-family: "Lavishly Yours", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.font2 {
+  font-family: "Faster One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.font3 {
+  font-family: custom-font;
+}
+
+
+@font-face {
+    font-family: custom-font;
+    src: url(./fonts/FiraSans-Italic.ttf);
+}
+
+
+.star-icon{
+    color: yellow;
+    font-size: 32px;
+}
