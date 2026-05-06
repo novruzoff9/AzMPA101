@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _04._05.Data;
 
@@ -10,9 +11,11 @@ using _04._05.Data;
 namespace _04._05.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260505082801_mig2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,32 +49,6 @@ namespace _04._05.Migrations
                     b.ToTable("Services");
                 });
 
-            modelBuilder.Entity("_04._05.Models.SocialMedia", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Icon")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TeamMemberId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeamMemberId");
-
-                    b.ToTable("SocialMedias");
-                });
-
             modelBuilder.Entity("_04._05.Models.TeamMember", b =>
                 {
                     b.Property<int>("Id")
@@ -88,10 +65,6 @@ namespace _04._05.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Position")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -99,22 +72,6 @@ namespace _04._05.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TeamMembers");
-                });
-
-            modelBuilder.Entity("_04._05.Models.SocialMedia", b =>
-                {
-                    b.HasOne("_04._05.Models.TeamMember", "TeamMember")
-                        .WithMany("SocialMedias")
-                        .HasForeignKey("TeamMemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TeamMember");
-                });
-
-            modelBuilder.Entity("_04._05.Models.TeamMember", b =>
-                {
-                    b.Navigation("SocialMedias");
                 });
 #pragma warning restore 612, 618
         }

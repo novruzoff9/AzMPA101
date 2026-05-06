@@ -1,0 +1,51 @@
+﻿@model List<TeamMember>
+
+
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+        <div class="container">
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">Team</li>
+                </ol>
+            </nav>
+            <h1>Team</h1>
+        </div>
+    </div><!-- End Page Title -->
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="team-member d-flex align-items-start">
+                            <div class="pic"><img src="~/assets/img/person/@item.ImageUrl" class="img-fluid" alt=""></div>
+                            <div class="member-info">
+                                <h4>@item.FullName</h4>
+                                <span>@item.Position</span>
+                                <p>@item.Description</p>
+                                <div class="social">
+                                    @foreach (var socialMedia in item.SocialMedias)
+                                    {
+                                        <a href="@socialMedia.Url" target="_blank"><i class="@socialMedia.Icon"></i></a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </section><!-- /Team Section -->
+
+</main>
