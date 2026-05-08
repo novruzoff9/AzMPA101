@@ -1,4 +1,6 @@
 using _04._05.Data;
+using _04._05.Services;
+using _04._05.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,8 @@ builder.Services.AddControllersWithViews();
 //    
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
 //     
 var app = builder.Build();
 
