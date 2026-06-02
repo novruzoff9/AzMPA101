@@ -1,0 +1,26 @@
+﻿@model CreateTeamVM
+<div class="container mt-5">
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label"></label>
+            <input class="form-control" asp-for="FullName">
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Position" class="form-label"></label>
+            <input class="form-control" asp-for="Position">
+            <span asp-validation-for="Position" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <input class="form-control" asp-for="Description">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ImageUrl" class="form-label"></label>
+            <input class="form-control" asp-for="ImageUrl">
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

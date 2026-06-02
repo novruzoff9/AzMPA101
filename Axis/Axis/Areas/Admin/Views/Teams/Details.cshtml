@@ -1,0 +1,13 @@
+﻿@model Team
+<div class="container mt-5">
+    <div class="card" style="width: 18rem;">
+        <img src="~/assets/img/person/@Model.ImageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Model.FullName</h5>
+            <h5 class="card-title">@Model.Position</h5>
+            <p class="card-text">@Model.Description</p>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+        </div>
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

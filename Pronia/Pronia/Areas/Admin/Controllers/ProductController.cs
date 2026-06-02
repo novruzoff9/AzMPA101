@@ -45,4 +45,20 @@ public class ProductController : Controller
         await _dbContext.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
+    public async Task<IActionResult> Edit (int id )
+    {
+        var data = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id);
+        return View(data);
+    }
+    [HttpPost]
+    public async Task<IActionResult> Edit (Product product,int id )
+    {
+        var data = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id==id);
+        data.Name = product.Name;
+        data.Price = product.Price;
+        data.ImageUrl = product.ImageUrl;
+        await _dbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
 }
