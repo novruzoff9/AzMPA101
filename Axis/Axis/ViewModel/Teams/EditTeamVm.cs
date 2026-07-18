@@ -14,5 +14,5 @@ public class EditTeamVm
     [Required]
     public string Description { get; set; }
     [Required]
-    public string ImageUrl { get; set; }
+    public IFormFile ImageUrl { get; set; }
 }

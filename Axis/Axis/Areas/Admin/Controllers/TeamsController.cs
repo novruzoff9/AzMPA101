@@ -60,10 +60,15 @@ public class TeamsController : Controller
         if(teamVM.ImageUrl is not null)
         {
             var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/person");
-            newTeam.ImageUrl = _fileService.SaveFile(teamVM.ImageUrl, uploadsFolder);
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var filePath = Path.Combine(uploadsFolder, teamVM.ImageUrl.FileName);
+
+            using var stream = new FileStream(filePath, FileMode.Create);
+            teamVM.ImageUrl.CopyTo(stream);
+            newTeam.ImageUrl = teamVM.ImageUrl.FileName;
         }
-
-
 
         await _dbContext.Teams.AddAsync(newTeam);
         await _dbContext.SaveChangesAsync();
@@ -85,7 +90,6 @@ public class TeamsController : Controller
             FullName = data.FullName,
             Description = data.Description,
             Position = data.Position,
-            ImageUrl = data.ImageUrl
         };
 
         return View(teamVm);
@@ -106,7 +110,20 @@ public class TeamsController : Controller
         data.FullName = teamVm.FullName;
         data.Position = teamVm.Position;
         data.Description = teamVm.Description;
-        data.ImageUrl = teamVm.ImageUrl;
+
+        if (teamVm.ImageUrl is not null)
+        {
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/person");
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var filePath = Path.Combine(uploadsFolder, teamVm.ImageUrl.FileName);
+
+            using var stream = new FileStream(filePath, FileMode.Create);
+            teamVm.ImageUrl.CopyTo(stream);
+            data.ImageUrl = teamVm.ImageUrl.FileName;
+        }
+
         await _dbContext.SaveChangesAsync();
 
         return RedirectToAction(nameof(Index));
